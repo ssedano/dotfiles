@@ -1,0 +1,85 @@
+# custom functions most of them for work
+function m {
+    
+    for PARAM in "$@"
+    do
+        PARAMS="${PARAMS} ${PARAM}"
+    done
+    
+    mysql -uroot -proot -e "${PARAMS}" kinton
+    
+
+    PARAM=""
+    PARAMS=""
+}
+
+function mn {
+    
+    for PARAM in "$@"
+    do
+        PARAMS="${PARAMS} ${PARAM}"
+    done
+    
+    mysql -uroot -proot -e "${PARAMS}" kinton_test
+    
+
+    PARAM=""
+    PARAMS=""
+}
+
+function na {
+    sudo rm -rf /opt/tomcat/webapps/bpm-async*
+    sudo rm -rf /opt/tomcat/webapps/client-premium*
+    sudo rm -rf /opt/tomcat/webapps/ssm*
+    sudo rm -rf /opt/tomcat/webapps/am*
+    sudo rm -rf /opt/tomcat/webapps/lvmiscsi*
+    sudo rm -rf /opt/tomcat/webapps/vsm*
+    sudo rm -rf /opt/tomcat/webapps/nodecollector*
+    sudo rm -rf /opt/tomcat/work/*
+    sudo rm -rf /opt/tomcat/webapps/api*
+    sudo rm -rf /opt/tomcat/webapps/virtualfactory* 
+    sudo rm -rf /opt/tomcat/temp/* 
+    OLD_PWD=$PWD
+    find . -name "*.war" -exec sudo cp {} /opt/tomcat/webapps \;
+    cd $OLD_PWD
+  }
+
+function api {
+  sudo rm -r /opt/tomcat/webapps/api*
+  sudo rm -rf /opt/tomcat/work/*
+  sudo rm -rf /opt/tomcat/temp/*
+  
+  OLD_PWD=$PWD
+  cd ~/workspace/platform/api
+  mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
+  dpl
+  cd $OLD_PWD
+}
+
+function nodecollector {
+  sudo rm -r /opt/tomcat/webapps/nodecollector*
+  sudo rm -rf /opt/tomcat/work/*
+  sudo rm -rf /opt/tomcat/temp/*
+  
+  OLD_PWD=$PWD
+    cd ~/workspace/platform/discovery-manager/
+    mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
+  cd ~/workspace/platform/discovery-manager/discovery-manager-server
+    dpl
+  cd $OLD_PWD
+}
+
+function model {
+  OLD_PWD=$PWD
+  cd ~/workspace/platform/model/api-model
+  mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
+  cd $OLD_PWD
+}
+
+function dto {
+  OLD_PWD=$PWD
+  cd ~/workspace/platform/model/api-model-transport
+  mvnn
+  cd $OLD_PWD
+}
+
