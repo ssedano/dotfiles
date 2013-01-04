@@ -31,3 +31,6 @@
 [submodule "vim/bundle/minibufexpl"]
 	path = vim/bundle/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
+[submodule "vim/bundle/comments.vim"]
+	path = vim/bundle/comments.vim
+	url = git@github.com:ssedano/comments.vim.git
