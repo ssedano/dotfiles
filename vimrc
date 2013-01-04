@@ -1,4 +1,4 @@
-set nocp
+:set nocompatible
 filetype off
 
 call pathogen#infect()
@@ -219,3 +219,4 @@ let g:paredit_mode = 0
 
 :let maplocalleader = ','
 "au BufRead,BufNewFile *.clj nmap <CR> <Plug>ClojureEvalToplevel
+:set backspace=indent,eol,start
