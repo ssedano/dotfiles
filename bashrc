@@ -117,6 +117,12 @@ fi
 if [ -f ~/dotfiles/functions ]; then
     . ~/dotfiles/functions
 fi
-if [ -f ~/dotfiles/envs ]; then
-    . ~/dotfiles/envs
+if [ `uname` == 'Linux' ]; then
+    if [ -f ~/dotfiles/envs ]; then
+        . ~/dotfiles/envs
+    fi
+else
+    if [ -f ~/dotfiles/envs_mac ]; then
+        . ~/dotfiles/envs_mac
+    fi
 fi

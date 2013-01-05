@@ -1,0 +1,2 @@
+export JAVA_HOME=/Library/Java/Home
+export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec
