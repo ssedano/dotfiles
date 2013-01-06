@@ -114,8 +114,14 @@ rvm use 1.9.3 --default > /dev/null 2>&1
 if [ -f ~/dotfiles/aliases ]; then
     . ~/dotfiles/aliases
 fi
-if [ -f ~/dotfiles/functions ]; then
-    . ~/dotfiles/functions
+if [ `uname` == 'Linux' ]; then
+    if [ -f ~/dotfiles/functions ]; then
+        . ~/dotfiles/functions
+    fi
+else
+    if [ -f ~/dotfiles/functions_mac ]; then
+        . ~/dotfiles/functions_mac
+    fi
 fi
 if [ `uname` == 'Linux' ]; then
     if [ -f ~/dotfiles/envs ]; then
