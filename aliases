@@ -14,6 +14,6 @@ alias mnf='lynx target/failsafe-reports/TestSuite.txt'
 
 alias gitt='GIT_TRACE=1 git'
 
-alias mvnn='mvn clean install -Dtest.suite=none -Dit.suite=none'
+alias mvnn='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost'
 
 alias clj=clj-env-dir

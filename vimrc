@@ -203,20 +203,37 @@ cnoremap <expr> bd (getcmdtype() == ':' ? 'Bclose' : 'bd')
 
 " Here's the vimclojure stuff. You'll need to adjust the NailgunClient
 " setting if you're on windows or have other problems.
-let vimclojure#FuzzyIndent=1
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
-let vimclojure#DynamicHighlighting=1
-let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun = 1 
-let vimclojure#NailgunClient = $HOME . "/.vim/lib/ng"
-let g:vimclojure#SplitPos="right"
-let vimclojure#SplitSize = 42
+"let vimclojure#FuzzyIndent=1
+"let vimclojure#HighlightBuiltins=1
+"let vimclojure#HighlightContrib=1
+"let vimclojure#DynamicHighlighting=1
+"let vimclojure#ParenRainbow=1
+"let vimclojure#WantNailgun = 1 
+"let vimclojure#NailgunClient = $HOME . "/.vim/lib/ng"
+"let g:vimclojure#SplitPos="right"
+"let vimclojure#SplitSize = 42
 
 " Paredit
 let g:paredit_mode = 0
-:noremap <silent> <F4> :ClojureRepl<CR>
+":noremap <silent> <F4> :ClojureRepl<CR>
 
 :let maplocalleader = ','
 "au BufRead,BufNewFile *.clj nmap <CR> <Plug>ClojureEvalToplevel
-:set backspace=2
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+set viminfo+=!
+let g:rbpt_colorpairs = [
+            \ ['darkyellow',  'orangered3'],
+            \ ['darkgreen',   'orange2'],
+            \ ['blue',        'yellow3'],
+            \ ['darkmagenta', 'olivedrab4'],
+            \ ['red',         'green4'],
+            \ ['darkyellow',  'paleturquoise3'],
+            \ ['darkgreen',   'deepskyblue4'],
+            \ ['blue',        'darkslateblue'],
+            \ ['darkmagenta', 'darkviolet'],
+            \ ]
+

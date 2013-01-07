@@ -16,9 +16,6 @@
 [submodule "vim/bundle/ctags.vim"]
 	path = vim/bundle/ctags.vim
 	url = git://github.com/vim-scripts/ctags.vim.git
-[submodule "vim/bundle/VimClojure"]
-	path = vim/bundle/VimClojure
-	url = git://github.com/vim-scripts/VimClojure.git
 [submodule "vim/bundle/Pydiction"]
 	path = vim/bundle/Pydiction
 	url = git://github.com/vim-scripts/Pydiction.git
@@ -37,3 +34,15 @@
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
 	url = git://github.com/tpope/vim-sensible.git
+[submodule "vim/bundle/vim-foreplay"]
+	path = vim/bundle/vim-foreplay
+	url = git://github.com/tpope/vim-foreplay.git
+[submodule "vim/bundle/vim-clojure-static"]
+	path = vim/bundle/vim-clojure-static
+	url = git://github.com/guns/vim-clojure-static.git
+[submodule "vim/bundle/rainbow_parentheses.vim"]
+	path = vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim
+[submodule "vim/bundle/vim-classpath"]
+	path = vim/bundle/vim-classpath
+	url = https://github.com/tpope/vim-classpath
