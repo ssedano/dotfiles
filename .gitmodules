@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-classpath"]
 	path = vim/bundle/vim-classpath
 	url = https://github.com/tpope/vim-classpath
+[submodule "vim/bundle/xml.vim"]
+	path = vim/bundle/xml.vim
+	url = git://github.com/othree/xml.vim.git

@@ -83,3 +83,9 @@ function dto {
   cd $OLD_PWD
 }
 
+function database {
+  OLD_PWD=$PWD
+  cd ~/workspace/platform/model/database
+  mvn clean install 
+  cd $OLD_PWD
+}
