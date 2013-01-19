@@ -2,7 +2,8 @@ set nocompatible
 filetype off
 
 call pathogen#infect()
-call pathogen#helptags()
+
+
 set number
 
 au VimEnter *  NERDTree
@@ -49,12 +50,6 @@ runtime! debian.vim
 " options, so any other options should be set AFTER setting 'compatible'.
 "set compatible
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the
-" following enables syntax highlighting by default.
-if has("syntax")
-    syntax on
-endif
-
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 "set background=dark
@@ -63,12 +58,6 @@ endif
 " reopening a file
 "if has("autocmd")
 "  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-"if has("autocmd")
-    filetype plugin indent on
 "endif
 
 " The following are commented out as they cause vim to behave a lot
@@ -128,10 +117,6 @@ set number
 set title 
 set ruler
 
-" ---------------- "
-"     PLUGINS      "
-" ---------------- "
-
 " ctags
 let g:ctags_path = "~/.vim/bundle/ctags.vim"
 let g:ctags_statusline=1
@@ -177,6 +162,8 @@ autocmd VimEnter *. wincmd p
 autocmd VimEnter * wincmd l
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+map   <silent> <F7> mmgg=G'm
+imap  <silent> <F7> <Esc> mmgg=G'm
 
 au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
 au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
@@ -237,7 +224,5 @@ let g:rbpt_colorpairs = [
             \ ['darkmagenta', 'darkviolet'],
             \ ]
 
-:set backspace=2
-
-map   <silent> <F7> mmgg=G'm
-imap  <silent> <F7> <Esc> mmgg=G'm
+:noremap <silent> cqa :%Eval<CR>
+:noremap <silent> cs :lopen<CR>
