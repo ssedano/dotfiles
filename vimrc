@@ -176,7 +176,7 @@ autocmd VimEnter *.rb NERDTree
 autocmd VimEnter *. wincmd p
 autocmd VimEnter * wincmd l
 
-
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
 au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
@@ -237,3 +237,7 @@ let g:rbpt_colorpairs = [
             \ ['darkmagenta', 'darkviolet'],
             \ ]
 
+:set backspace=2
+
+map   <silent> <F7> mmgg=G'm
+imap  <silent> <F7> <Esc> mmgg=G'm

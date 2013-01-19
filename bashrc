@@ -37,6 +37,10 @@ if [ -f ~/.git-completion.sh ]; then
 	. ~/.git-completion.sh
 fi
 
+if [ -f ~/.hub.bash_completion.sh ]; then
+    . ~/.hub.bash_completion.sh
+fi
+
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -107,7 +111,7 @@ fi
 if [ -f ~/.rvm/scripts/rvm ]; then
     . ~/.rvm/scripts/rvm
 fi
-rvm use 1.9.3 --default > /dev/null 2>&1 
+rvm use 2.0.0-rc1 --default > /dev/null 2>&1 
 
 # custom load
 
@@ -132,3 +136,6 @@ else
         . ~/dotfiles/envs_mac
     fi
 fi
+
+
+eval "$(hub alias -s)"
