@@ -138,4 +138,4 @@ else
 fi
 
 
-eval "$(hub alias -s)"
+#eval "$(hub alias -s)"

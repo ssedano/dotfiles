@@ -16,9 +16,6 @@
 [submodule "vim/bundle/ctags.vim"]
 	path = vim/bundle/ctags.vim
 	url = git://github.com/vim-scripts/ctags.vim.git
-[submodule "vim/bundle/Pydiction"]
-	path = vim/bundle/Pydiction
-	url = git://github.com/vim-scripts/Pydiction.git
 [submodule "vim/bundle/taglist.vim"]
 	path = vim/bundle/taglist.vim
 	url = git://github.com/vim-scripts/taglist.vim.git
@@ -49,3 +46,12 @@
 [submodule "vim/bundle/xml.vim"]
 	path = vim/bundle/xml.vim
 	url = git://github.com/othree/xml.vim.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule "vim/bundle/vim-endwise"]
+	path = vim/bundle/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "vim/bundle/Pydiction"]
+	path = vim/bundle/Pydiction
+	url = git@github.com:ssedano/Pydiction.git

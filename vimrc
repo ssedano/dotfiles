@@ -8,26 +8,26 @@ set number
 
 au VimEnter *  NERDTree
 function! NERDTreeQuit()
-  redir => buffersoutput
-  silent buffers
-  redir END
-"                     1BufNo  2Mods.     3File           4LineNo
-  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
-  let windowfound = 0
+    redir => buffersoutput
+    silent buffers
+    redir END
+    "                     1BufNo  2Mods.     3File           4LineNo
+    let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+    let windowfound = 0
 
-  for bline in split(buffersoutput, "\n")
-    let m = matchlist(bline, pattern)
+    for bline in split(buffersoutput, "\n")
+        let m = matchlist(bline, pattern)
 
-    if (len(m) > 0)
-      if (m[2] =~ '..a..')
-        let windowfound = 1
-      endif
+        if (len(m) > 0)
+            if (m[2] =~ '..a..')
+                let windowfound = 1
+            endif
+        endif
+    endfor
+
+    if (!windowfound)
+        quitall
     endif
-  endfor
-
-  if (!windowfound)
-    quitall
-  endif
 endfunction
 
 autocmd WinEnter * call NERDTreeQuit()
@@ -162,6 +162,8 @@ autocmd VimEnter *. wincmd p
 autocmd VimEnter * wincmd l
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+" F7 indents all file and let the cursor where it was
 map   <silent> <F7> mmgg=G'm
 imap  <silent> <F7> <Esc> mmgg=G'm
 
@@ -177,7 +179,14 @@ noremap <silent> ,l :wincmd l<CR>
 "Maped keys
 noremap <silent> qq :qa<CR>
 
-let g:pydiction_location = '~/.vim/after/ftplugin/pydict/complete-dict'
+let pydict = '~/.vim/after/ftplugin/pydict/complete-dict'
+if (has('win32') || has('win64'))
+    let pydict = substitute(pydict, '/', '\\', 'g')
+endif
+
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python let g:pydiction_location = pydict
+
 :vnoremap > >gv
 :vnoremap <lt> <lt>gv
 
@@ -226,3 +235,10 @@ let g:rbpt_colorpairs = [
 
 :noremap <silent> cqa :%Eval<CR>
 :noremap <silent> cs :lopen<CR>
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"improve autocomplete menu color
+highlight Pmenu ctermbg=238 gui=bold
