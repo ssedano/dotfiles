@@ -111,7 +111,7 @@ fi
 if [ -f ~/.rvm/scripts/rvm ]; then
     . ~/.rvm/scripts/rvm
 fi
-rvm use 2.0.0-rc1 --default > /dev/null 2>&1 
+rvm use 1.9.3 --default > /dev/null 2>&1 
 
 # custom load
 
@@ -138,4 +138,3 @@ else
 fi
 
 
-#eval "$(hub alias -s)"
