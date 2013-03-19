@@ -1,6 +1,6 @@
 # custom exports
 export JAVA_HOME=/opt/jdk
-export M2_HOME=~/Programs/maven
+export M2_HOME=/opt/maven
 export CATALINA_HOME=/opt/tomcat
 export CATALINA_BASE=/opt/tomcat
 
