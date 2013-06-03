@@ -119,7 +119,7 @@ set ruler
 
 " ctags
 let g:ctags_path = "~/.vim/bundle/ctags.vim"
-let g:ctags_statusline=1
+let g:ctags_statusline = 1
 
 " Taglist
 " let Tlist_Ctags_Cmd = "~/.vim/bundle/taglist.vim"
@@ -128,20 +128,10 @@ let Tlist_Auto_Update = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_File_Fold_Auto_Close = 1
 let tlist_clojure_settings = 'lisp;f:function'
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Auto_Open=0
+let Tlist_Exit_OnlyWindow = 1
 let Tlist_Sort_Type = "name"
-let Tlist_File_Fold_Auto_Close=1
-let Tlist_GainFocus_On_ToggleOpen=0 
-autocmd VimEnter *.java Tlist
-" autocmd VimEnter *.xml Tlist
-autocmd VimEnter *.php Tlist
-autocmd VimEnter *.py Tlist
-autocmd VimEnter *.c Tlist
-autocmd VimEnter *.h Tlist
-autocmd VimEnter *.cpp Tlist
-autocmd VimEnter *.rb Tlist
-autocmd VimEnter *.clj Tlist
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_GainFocus_On_ToggleOpen = 0  
 " NERDTree 
 nnoremap <silent><F2> :NERDTreeToggle<CR>
 let NERDTreeAutoCenter = 1
@@ -149,17 +139,6 @@ let NERDTreeCaseSensitiveSort = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeMouseMode = 2
 let NERDTreeShowBookmarks = 1
-autocmd VimEnter *.java NERDTree
-autocmd VimEnter *.xml NERDTree
-autocmd VimEnter *.php NERDTree
-autocmd VimEnter *.py NERDTree
-autocmd VimEnter *.c NERDTree
-autocmd VimEnter *.h NERDTree
-autocmd VimEnter *.cpp NERDTree
-autocmd VimEnter *.clj NERDTree
-autocmd VimEnter *.rb NERDTree
-autocmd VimEnter *. wincmd p
-autocmd VimEnter * wincmd l
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 

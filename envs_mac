@@ -1,4 +1,4 @@
-export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=/opt/jdk
 export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec
 
 export MAVEN_OPTS="-Xms40m -Xmx440m -XX:PermSize=40m -XX:MaxPermSize=141m "
@@ -14,4 +14,4 @@ export CLOJURE_EXT=~/.clojure
 export M2_HOME=/opt/maven
 export CATALINA_HOME=/opt/tomcat
 export CATALINA_BASE=/opt/tomcat
-
+export PATH=$PATH:/Library/PostgreSQL/9.1/bin
