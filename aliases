@@ -11,11 +11,12 @@ alias rabbitmq-reset='sudo rabbitmqctl stop_app && sudo rabbitmqctl reset && sud
 
 alias mng='lynx target/surefire-reports/TestSuite.txt'
 alias mnf='lynx target/failsafe-reports/TestSuite.txt'
-
+alias mvnj='mvn clean package -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev jetty:run -o'
 alias gitt='GIT_TRACE=1 git'
 
 alias mvnn='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -o'
 alias mvns='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev'
 alias mvnl='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev'
+alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
 
-alias clj=clj-env-dir
+alias mvnal='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev'

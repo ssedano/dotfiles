@@ -225,3 +225,4 @@ set undodir^=~/.cache/vim/undo//
 
 let g:tcommentMapLeader1 = '<c-c>'
 
+let g:pymode_folding = 0
