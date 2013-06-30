@@ -61,3 +61,6 @@
 [submodule "vim/bundle/vim-fireplace"]
 	path = vim/bundle/vim-fireplace
 	url = git@github.com:tpope/vim-fireplace
+[submodule "vim/bundle/vim-ruby-debugger"]
+	path = vim/bundle/vim-ruby-debugger
+	url = git://github.com/astashov/vim-ruby-debugger.git
