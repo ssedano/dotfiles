@@ -20,3 +20,4 @@ alias mvnl='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=loc
 alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev'
 
 alias mvnal='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
+

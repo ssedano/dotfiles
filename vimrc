@@ -226,3 +226,6 @@ set undodir^=~/.cache/vim/undo//
 let g:tcommentMapLeader1 = '<c-c>'
 
 let g:pymode_folding = 0
+map <F7>  :call g:RubyDebugger.step()<CR>
+map <F5>  :call g:RubyDebugger.next()<CR>
+map <F8>  :call g:RubyDebugger.continue()<CR>

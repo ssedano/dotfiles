@@ -1,0 +1,39 @@
+[user]
+	name = Serafin Sedano
+	email = serafin.sedano@gmail.com
+[color]
+    status = always 
+    interactive = always
+    diff = auto
+    branch = auto
+    ui = auto
+
+[alias]
+    st = status -sb
+    ci = commit
+    co = checkout
+    br = branch
+    pr = pull --rebase
+    pl = pull
+    ps = push
+    lg = log --graph
+    ll = log --graph --oneline
+    ds = diff --staged
+    amend = !git commit --amend --date=\"$(date -R)\" -C HEAD
+    ls = log --pretty=format:'%C(yellow)%h %C(green)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+    graph = log --graph --pretty=format':%C(yellow)%h%Cgreen%d%Creset %s %C(white) %an, %ar%Creset'
+    standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
+    sbco = submodule foreach git submodule foreach git checkout
+    trysbco = "!f() { git submodule foreach \"git checkout $1 || :\" ; }; f"
+    sbcoup = "!f() { git submodule foreach \"git checkout $1 && git fetch && git pull origin $1 || :\"; }; f"
+[apply]
+    whitespace = nowarn
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+	autocrlf = false
+
+[format]
+   # pretty=format:%h (%ad %an) %s
+    pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset

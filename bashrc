@@ -111,7 +111,6 @@ fi
 if [ -f ~/.rvm/scripts/rvm ]; then
     . ~/.rvm/scripts/rvm
 fi
-rvm use 1.9.3 --default > /dev/null 2>&1 
 
 # custom load
 
