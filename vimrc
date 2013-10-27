@@ -143,8 +143,8 @@ let NERDTreeShowBookmarks = 1
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 " F7 indents all file and let the cursor where it was
-map   <silent> <F7> mmgg=G'm
-imap  <silent> <F7> <Esc> mmgg=G'm
+map   <silent> <F9> mmgg=G'm
+imap  <silent> <F9> <Esc> mmgg=G'm
 
 au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
 au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 

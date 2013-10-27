@@ -14,4 +14,6 @@ export CLOJURE_EXT=~/.clojure
 export M2_HOME=/opt/maven
 export CATALINA_HOME=/opt/tomcat
 export CATALINA_BASE=/opt/tomcat
-export PATH=$PATH:/Library/PostgreSQL/9.1/bin
+export PATH=$PATH:~/bin:/Library/PostgreSQL/9.1/bin:/usr/local/mysql/bin:/usr/local/Cellar/rabbitmq/3.1.5/sbin
+
+export JRE_HOME=$JAVA_HOME

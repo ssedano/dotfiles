@@ -34,7 +34,7 @@ case "$TERM" in
 esac
 
 if [ -f ~/.git-completion.sh ]; then
-	. ~/.git-completion.sh
+    . ~/.git-completion.sh
 fi
 
 if [ -f ~/.hub.bash_completion.sh ]; then
@@ -137,3 +137,5 @@ else
 fi
 
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
