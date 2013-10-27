@@ -16,7 +16,8 @@
     pr = pull --rebase
     pl = pull
     ps = push
-    lg = log --graph
+    lg = log --graph 
+    lt = log --graph --pretty=full
     ll = log --graph --oneline
     ds = diff --staged
     amend = !git commit --amend --date=\"$(date -R)\" -C HEAD
@@ -32,8 +33,13 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore
-	autocrlf = false
-
+    autocrlf = false
+[rerere]
+      # Remember my merges
+      #   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+    enabled = true
 [format]
    # pretty=format:%h (%ad %an) %s
     pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+[include]
+    path = .gitconfig.github

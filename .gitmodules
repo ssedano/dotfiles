@@ -64,3 +64,6 @@
 [submodule "vim/bundle/vim-ruby-debugger"]
 	path = vim/bundle/vim-ruby-debugger
 	url = git://github.com/astashov/vim-ruby-debugger.git
+[submodule "vim/bundle/vim-jedi"]
+	path = vim/bundle/vim-jedi
+	url = https://github.com/davidhalter/jedi-vim.git

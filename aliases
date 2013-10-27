@@ -21,3 +21,6 @@ alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=local
 
 alias mvnal='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
 
+alias mvnalt="mvn -gs ~/projects/m2/settings.xml"
+alias mvnnalt="mvnalt clean install -Dit.suite=none -Dtest.suite=none"
+alias mvnaalt="mvnalt clean install -Dit.suite=all -Dtest.suite=all"
