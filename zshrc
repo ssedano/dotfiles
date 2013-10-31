@@ -37,11 +37,13 @@ ZSH_THEME="ssedano"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby pip python rvm mvn github)
+plugins=(git osx ruby pip python rvm mvn )
 
 source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
-source ~/.zshenv
+source ~/.zshenvs
 source ~/.zshfunctions
 source ~/dotfiles/aliases
+autoload select-word-style
+select-word-style shell
 zstyle ':completion:*' special-dirs true
