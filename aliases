@@ -1,5 +1,8 @@
 # custom alias
-alias vi='vim'
+alias vi='vi -X'
+
+alias vim='vim -X'
+
 
 alias deploy='mvn clean install & mvn cargo:undeploy && mvn  cargo:deploy '
 
