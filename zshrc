@@ -44,8 +44,8 @@ source $ZSH/oh-my-zsh.sh
 autoload select-word-style
 select-word-style shell
 source ~/.zshenv
-source ~/.zshfunctions
-source ~/dotfiles/aliases
+source ~/.functions
+source ~/.aliases
 autoload select-word-style
 select-word-style shell
 zstyle ':completion:*' special-dirs true
