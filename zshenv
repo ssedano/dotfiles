@@ -1,3 +1,4 @@
+export PAGER="less -rFnXME"
 export JAVA_HOME=/opt/jdk
 export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec
 

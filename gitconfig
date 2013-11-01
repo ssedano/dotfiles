@@ -1,6 +1,6 @@
 [user]
-	name = Serafin Sedano
-	email = serafin.sedano@gmail.com
+    name = Serafin Sedano
+    email = serafin.sedano@gmail.com
 [color]
     status = always 
     interactive = always
@@ -24,22 +24,22 @@
     ls = log --pretty=format:'%C(yellow)%h %C(green)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
     graph = log --graph --pretty=format':%C(yellow)%h%Cgreen%d%Creset %s %C(white) %an, %ar%Creset'
     standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
-    sbco = submodule foreach git submodule foreach git checkout
+    sbco = submodule foreach git checkout
     trysbco = "!f() { git submodule foreach \"git checkout $1 || :\" ; }; f"
     sbcoup = "!f() { git submodule foreach \"git checkout $1 && git fetch && git pull origin $1 || :\"; }; f"
 [apply]
     whitespace = nowarn
 
 [core]
-    editor = vim
+    editor = vim -X
     excludesfile = ~/.gitignore
     autocrlf = false
+    pager = less -rFXnME
 [rerere]
-      # Remember my merges
-      #   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+    # Remember my merges
+    #   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
     enabled = true
 [format]
-   # pretty=format:%h (%ad %an) %s
     pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [include]
     path = .gitconfig.github
