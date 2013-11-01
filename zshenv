@@ -1,4 +1,5 @@
 # custom exports
+export PAGER="less -rFnXME"
 export JAVA_HOME=/opt/jdk
 export M2_HOME=/opt/maven
 export CATALINA_HOME=/opt/tomcat
