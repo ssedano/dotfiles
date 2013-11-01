@@ -14,4 +14,4 @@ ln -s ~/dotfiles/functions ~/.functions
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
-source ~/.zshenv
+source ~/.zshrc
