@@ -17,18 +17,17 @@ alias mnf='lynx target/failsafe-reports/TestSuite.txt'
 alias mvnj='mvn clean package -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev jetty:run -o'
 alias gitt='GIT_TRACE=1 git'
 
-alias mvnn='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev'
-alias mvns='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev'
+alias mvnn='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev'
 alias mvnl='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -o'
 alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev'
 
-alias mvnal='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
+alias mvnal='mvn clean source:jar install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
 
 alias mvnalt="mvn -gs ~/projects/m2/settings.xml"
 alias mvnnalt="mvnalt clean install -Dit.suite=none -Dtest.suite=none"
 alias mvnaalt="mvnalt clean install -Dit.suite=all -Dtest.suite=all"
 
 # ZSH
-alias -g gp='| grep -i '
+alias -g gp='| grep  '
 alias -s rb=vim
 alias -s log='less -MN'

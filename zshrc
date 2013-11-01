@@ -41,6 +41,8 @@ plugins=(git osx ruby pip python rvm mvn )
 
 source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
+autoload select-word-style
+select-word-style shell
 source ~/.zshenv
 source ~/.zshfunctions
 source ~/dotfiles/aliases
