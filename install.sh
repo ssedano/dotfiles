@@ -6,6 +6,7 @@ mv ~/.functions ~/.functions_old
 mv ~/.vimrc ~/.vimrc_old
 mv ~/.vim ~/.vim_old
 mv ~/.gitconfig ~/.gitconfig_old
+mv ~/.zsh ~/.zsh_old
 
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/aliases ~/.aliases
@@ -14,4 +15,6 @@ ln -s ~/dotfiles/functions ~/.functions
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/zsh ~/.zsh
+
 source ~/.zshrc

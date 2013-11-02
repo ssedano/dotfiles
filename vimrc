@@ -5,7 +5,7 @@ call pathogen#infect()
 
 
 set number
-
+set encoding=utf-8
 au VimEnter *  NERDTree
 function! NERDTreeQuit()
     redir => buffersoutput
@@ -229,3 +229,9 @@ let g:pymode_folding = 0
 map <F5>  :call g:RubyDebugger.step()<CR>
 map <F6>  :call g:RubyDebugger.next()<CR>
 map <F8>  :call g:RubyDebugger.continue()<CR>
+let g:airline_powerline_fonts = 1
+
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.space = "\ua0"

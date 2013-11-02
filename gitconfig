@@ -34,6 +34,7 @@
     editor = vim -X
     excludesfile = ~/.gitignore
     autocrlf = false
+    preloadindex = true
     pager = less -rFXnME
 [rerere]
     # Remember my merges
