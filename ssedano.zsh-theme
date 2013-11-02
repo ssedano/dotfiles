@@ -25,19 +25,25 @@ parse_git_branch() {
 parse_git_state() {
 
   local GIT_STATE=""
-  local GIT_PROMPT_BRANCH="%B%F{green}✓"
+  local GIT_PROMPT_BRANCH="%B%F{green}"
   local BRANCH="$1"
   BRANCH="${BRANCH#(refs/heads/|tags/)}"
-  local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
+
+  typeset -a DIFF_COM
+
+  local DIFF_COM_NUMS="$(git rev-list --count --left-right origin/$BRANCH..$BRANCH 2> /dev/null)"
+
+  DIFF_COM=( ${=DIFF_COM_NUMS} )
+  local NUM_AHEAD=$DIFF_COM[1]
   if [ "$NUM_AHEAD" -gt 0 ]; then
     GIT_PROMPT_BRANCH="%B%F{blue}"
-    GIT_STATE=$GIT_STATE${GIT_PROMPT_AHEAD//NUM/$NUM_AHEAD}
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_AHEAD$NUM_AHEAD
   fi
 
-  local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
+  local NUM_BEHIND=$DIFF_COM[2]
   if [ "$NUM_BEHIND" -gt 0 ]; then
     GIT_PROMPT_BRANCH="%B%F{blue}"
-    GIT_STATE=$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_BEHIND}
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_BEHIND$NUM_BEHIND
   fi
 
   local STAT="$(git status --porcelain | cut -c 1-2 | sort | tr ' ' 'L' | uniq -c)"
