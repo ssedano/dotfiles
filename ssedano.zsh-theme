@@ -1,4 +1,4 @@
-# My theme, just a copy and paste of various snippet
+# My theme, optimized number of calls to git
 autoload -U colors && colors
 
 autoload -Uz vcs_info
