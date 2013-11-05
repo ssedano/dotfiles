@@ -21,4 +21,4 @@ ln -s ~/dotfiles/zsh ~/.zsh
 
 mkdir ~/.oh-my-zsh/custom/themes 2> /dev/null
 ln -s ~/dotfiles/ssedano.zsh-theme ~/.oh-my-zsh/ssedano.zsh-theme
-source ~/.zshrc
+source ~/.zshrc 

@@ -231,7 +231,9 @@ map <F6>  :call g:RubyDebugger.next()<CR>
 map <F8>  :call g:RubyDebugger.continue()<CR>
 let g:airline_powerline_fonts = 1
 
-"if !exists('g:airline_symbols')
-"    let g:airline_symbols = {}
-"endif
-"let g:airline_symbols.space = "\ua0"
+" Remove any trailing whitespace that is in the file
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
