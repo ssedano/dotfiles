@@ -49,3 +49,8 @@ source ~/.aliases
 autoload select-word-style
 select-word-style shell
 zstyle ':completion:*' special-dirs true
+
+setopt NO_SHARE_HISTORY
+autoload -U zmv
+autoload -U zcp
+

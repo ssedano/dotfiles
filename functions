@@ -1,27 +1,27 @@
 # custom functions most of them for work
 function m {
-    
+
     for PARAM in "$@"
     do
         PARAMS="${PARAMS} ${PARAM}"
     done
-    
+
     mysql -uroot -proot -e "${PARAMS}" kinton
-    
+
 
     PARAM=""
     PARAMS=""
 }
 
 function mn {
-    
+
     for PARAM in "$@"
     do
         PARAMS="${PARAMS} ${PARAM}"
     done
-    
+
     mysql -uroot -proot -e "${PARAMS}" kinton_test
-    
+
 
     PARAM=""
     PARAMS=""
@@ -29,7 +29,6 @@ function mn {
 
 function na {
     sudo rm -rf /opt/tomcat/webapps/bpm-async*
-    sudo rm -rf /opt/tomcat/webapps/client-premium*
     sudo rm -rf /opt/tomcat/webapps/ssm*
     sudo rm -rf /opt/tomcat/webapps/am*
     sudo rm -rf /opt/tomcat/webapps/lvmiscsi*
@@ -37,22 +36,22 @@ function na {
     sudo rm -rf /opt/tomcat/webapps/nodecollector*
     sudo rm -rf /opt/tomcat/work/*
     sudo rm -rf /opt/tomcat/webapps/api*
-    sudo rm -rf /opt/tomcat/webapps/virtualfactory* 
-    sudo rm -rf /opt/tomcat/temp/* 
-    OLD_PWD=$PWD
-    find . -name "*.war" -exec sudo cp {} /opt/tomcat/webapps \;
+    sudo rm -rf /opt/tomcat/webapps/virtualfactory*
+    sudo rm -rf /opt/tomcat/temp/*
+    local OLD_PWD=$PWD
+    sudo cp `ls **/*.war` /opt/tomcat/webapps/
     cd $OLD_PWD
   }
 
 function api {
-  sudo rm -r /opt/tomcat/webapps/api*
-  sudo rm -rf /opt/tomcat/work/*
-  sudo rm -rf /opt/tomcat/temp/*
-  
-  OLD_PWD=$PWD
-  cd ~/abiquo/platform/api
-  mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
-  dpl
+  sudo rm -r /opt/tomcat/webapps/api*(N)
+  sudo rm -rf /opt/tomcat/work/*(N)
+  sudo rm -rf /opt/tomcat/temp/*(N)
+
+  local OLD_PWD=$PWD
+  cd ~/workspace/platform/api
+  mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Pdev
+  sudo cp target/api.war /opt/tomcat/webapps/
   cd $OLD_PWD
 }
 
@@ -60,26 +59,44 @@ function nodecollector {
   sudo rm -r /opt/tomcat/webapps/nodecollector*
   sudo rm -rf /opt/tomcat/work/*
   sudo rm -rf /opt/tomcat/temp/*
-  
-  OLD_PWD=$PWD
-    cd ~/abiquo/platform/discovery-manager/
+
+  local OLD_PWD=$PWD
+    cd ~/workspace/platform/discovery-manager/
     mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
-  cd ~/abiquo/platform/discovery-manager/discovery-manager-server
+  cd ~/workspace/platform/discovery-manager/discovery-manager-server
     dpl
   cd $OLD_PWD
 }
 
 function model {
-  OLD_PWD=$PWD
-  cd ~/abiquo/platform/model/api-model
+  local OLD_PWD=$PWD
+  cd ~/workspace/platform/model/api-model
   mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
   cd $OLD_PWD
 }
 
 function dto {
-  OLD_PWD=$PWD
-  cd ~/abiquo/platform/model/api-model-transport
+  local OLD_PWD=$PWD
+  cd ~/workspace/platform/model/api-model-transport
   mvnn
   cd $OLD_PWD
+}
+
+function dpl {
+    sudo rm -rf /opt/tomcat/{work,temp,activemq-data,logs}/*(N)
+    if [ `ls -1 **/*.war` -gt 1 ];
+    then
+        for i in $(ls /opt/tomcat/webapps/*.war)
+        do
+            local file=${${i##*/}%.*}
+            sudo rm -rf /opt/tomcat/webapps/$file{,.war}(N)
+        done
+        sudo cp `ls **/*.war` /opt/tomcat/webapps/
+    else
+        local i=$(ls **/*.war)
+        local file=${${i##*/}%.*}
+        sudo rm -rf /opt/tomcat/webapps/$file{,.war}(N)
+
+    fi
 }
 

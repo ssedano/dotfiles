@@ -2,7 +2,7 @@
     name = Serafin Sedano
     email = serafin.sedano@gmail.com
 [color]
-    status = always 
+    status = always
     interactive = always
     diff = auto
     branch = auto
@@ -16,7 +16,7 @@
     pr = pull --rebase
     pl = pull
     ps = push
-    lg = log --graph 
+    lg = log --graph
     lt = log --graph --pretty=full
     ll = log --graph --oneline
     ds = diff --staged
@@ -27,6 +27,7 @@
     sbco = submodule foreach git checkout
     trysbco = "!f() { git submodule foreach \"git checkout $1 || :\" ; }; f"
     sbcoup = "!f() { git submodule foreach \"git checkout $1 && git fetch && git pull origin $1 || :\"; }; f"
+    trysbcoup = "!f() { git submodule foreach \"git fetch && git checkout $1 && git pull origin $1 || :\" ; }; f"
 [apply]
     whitespace = nowarn
 

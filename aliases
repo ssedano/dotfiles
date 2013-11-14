@@ -3,7 +3,6 @@ alias deploy='mvn clean install & mvn cargo:undeploy && mvn  cargo:deploy '
 
 alias mysqln='mysql -uroot -proot kinton'
 
-alias dpl='sudo cp target/*.war /opt/tomcat/webapps'
 
 alias rabbitmq-reset='sudo rabbitmqctl stop_app && sudo rabbitmqctl reset && sudo rabbitmqctl start_app'
 
