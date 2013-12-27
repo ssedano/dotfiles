@@ -54,3 +54,7 @@ setopt NO_SHARE_HISTORY
 autoload -U zmv
 autoload -U zcp
 
+
+if test -f ~/.rvm/scripts/rvm; then
+       [ "$(type -t rvm)" = "function" ] || source ~/.rvm/scripts/rvm
+fi

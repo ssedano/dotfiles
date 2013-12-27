@@ -5,7 +5,7 @@ export M2_HOME=/opt/maven
 export CATALINA_HOME=/opt/tomcat
 export CATALINA_BASE=/opt/tomcat
 
-export PATH=$PATH:$M2_HOME/bin:$HOME/.rvm/bin:$HOME/opt/clojure-contrib/launchers/bash
+export PATH=$PATH:$M2_HOME/bin:$HOME/.rvm/bin:$HOME/opt/clojure-contrib/launchers/bash:$HOME/bin:$HOME/dotfiles/bin
 export JYTHONPATH=/home/ssedano/projects/kahuna
 
 export M2_REPO=~/.m2/repository

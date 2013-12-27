@@ -84,19 +84,21 @@ function dto {
 
 function dpl {
     sudo rm -rf /opt/tomcat/{work,temp,activemq-data,logs}/*(N)
-    if [ `ls -1 **/*.war` -gt 1 ];
+    local count=`ls -1 **/*.war| wc -l`
+    if [ "$count" -gt 1 ];
     then
         for i in $(ls /opt/tomcat/webapps/*.war)
         do
             local file=${${i##*/}%.*}
+            echo $file
             sudo rm -rf /opt/tomcat/webapps/$file{,.war}(N)
         done
-        sudo cp `ls **/*.war` /opt/tomcat/webapps/
+        sudo cp **/*.war /opt/tomcat/webapps/
     else
         local i=$(ls **/*.war)
         local file=${${i##*/}%.*}
+        echo $file
         sudo rm -rf /opt/tomcat/webapps/$file{,.war}(N)
-
     fi
 }
 

@@ -28,6 +28,8 @@
     trysbco = "!f() { git submodule foreach \"git checkout $1 || :\" ; }; f"
     sbcoup = "!f() { git submodule foreach \"git checkout $1 && git fetch && git pull origin $1 || :\"; }; f"
     trysbcoup = "!f() { git submodule foreach \"git fetch && git checkout $1 && git pull origin $1 || :\" ; }; f"
+    last = log -10
+    undo = reset --soft HEAD^
 [apply]
     whitespace = nowarn
 

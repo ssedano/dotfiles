@@ -14,7 +14,7 @@ alias gitt='GIT_TRACE=1 git'
 alias mvnn='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev'
 alias mvnl='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -o'
 alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev'
-
+alias depl='nocorrect sudo cp **/*.war /opt/tomcat/webapps'
 alias mvnal='mvn clean source:jar install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
 
 alias mvnalt="mvn -gs ~/projects/m2/settings.xml"
@@ -25,3 +25,5 @@ alias mvnaalt="mvnalt clean install -Dit.suite=all -Dtest.suite=all"
 alias -g gp='| grep  '
 alias -s rb=vim
 alias -s log='less -MN'
+
+alias grm="git status | grep deleted | awk '{\$1=\$2=\"\"; print \$0}' | perl -pe 's/^[ \t]*//' | sed 's/ /\\\\ /g' | xargs git rm"

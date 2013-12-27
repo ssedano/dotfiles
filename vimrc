@@ -113,8 +113,8 @@ else
 endif
 
 " Show number lines the title of the window and the ruler
-set number 
-set title 
+set number
+set title
 set ruler
 
 " ctags
@@ -131,8 +131,8 @@ let tlist_clojure_settings = 'lisp;f:function'
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Sort_Type = "name"
 let Tlist_File_Fold_Auto_Close = 1
-let Tlist_GainFocus_On_ToggleOpen = 0  
-" NERDTree 
+let Tlist_GainFocus_On_ToggleOpen = 0
+" NERDTree
 nnoremap <silent><F2> :NERDTreeToggle<CR>
 let NERDTreeAutoCenter = 1
 let NERDTreeCaseSensitiveSort = 1
@@ -146,8 +146,8 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 map   <silent> <F9> mmgg=G'm
 imap  <silent> <F9> <Esc> mmgg=G'm
 
-au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2 
-au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2 
+au BufRead,BufNewFile *.rb,*.rhtml set shiftwidth=2
+au BufRead,BufNewFile *.rb,*.rhtml set softtabstop=2
 
 " Move around the windows
 noremap <silent> ,j :wincmd j<CR>
@@ -183,7 +183,7 @@ cnoremap <expr> bd (getcmdtype() == ':' ? 'Bclose' : 'bd')
 "let vimclojure#HighlightContrib=1
 "let vimclojure#DynamicHighlighting=1
 "let vimclojure#ParenRainbow=1
-"let vimclojure#WantNailgun = 1 
+"let vimclojure#WantNailgun = 1
 "let vimclojure#NailgunClient = $HOME . "/.vim/lib/ng"
 "let g:vimclojure#SplitPos="right"
 "let vimclojure#SplitSize = 42
@@ -221,7 +221,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
-set undodir^=~/.cache/vim/undo//
+set undodir^=~/.cache/vim/undo/
 
 let g:tcommentMapLeader1 = '<c-c>'
 
@@ -237,3 +237,4 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
+
