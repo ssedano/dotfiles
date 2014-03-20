@@ -1,0 +1,1 @@
+/Users/detryo/dotfiles/zsh

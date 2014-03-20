@@ -1,0 +1,21 @@
+#!/bin/zsh
+local uri="$1"
+
+[ -n "$1" ] && wget -O tmp.pdf "$1"
+pdftotext -f 1 -l 1 -layout tmp.pdf
+
+if [ -f tmp.pdf ];
+then
+    local TITLE=""
+    while read line
+    do
+        if [ "" = "$line" ];
+        then
+            local b="${${TITLE/# }//[:| ]/-}"
+            cp tmp.pdf "$b".pdf && rm tmp.{pdf,txt}
+            echo "$b"
+            return
+        fi
+        TITLE=$TITLE' '$line
+    done < tmp.txt
+fi

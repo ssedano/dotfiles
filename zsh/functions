@@ -1,27 +1,27 @@
 # custom functions most of them for work
 function m {
-    
+
     for PARAM in "$@"
     do
         PARAMS="${PARAMS} ${PARAM}"
     done
-    
+
     mysql -uroot -proot -e "${PARAMS}" kinton
-    
+
 
     PARAM=""
     PARAMS=""
 }
 
 function mn {
-    
+
     for PARAM in "$@"
     do
         PARAMS="${PARAMS} ${PARAM}"
     done
-    
+
     mysql -uroot -proot -e "${PARAMS}" kinton_test
-    
+
 
     PARAM=""
     PARAMS=""
@@ -37,8 +37,8 @@ function na {
     sudo rm -rf /opt/tomcat/webapps/nodecollector*
     sudo rm -rf /opt/tomcat/work/*
     sudo rm -rf /opt/tomcat/webapps/api*
-    sudo rm -rf /opt/tomcat/webapps/virtualfactory* 
-    sudo rm -rf /opt/tomcat/temp/* 
+    sudo rm -rf /opt/tomcat/webapps/virtualfactory*
+    sudo rm -rf /opt/tomcat/temp/*
     OLD_PWD=$PWD
     find . -name "*.war" -exec sudo cp {} /opt/tomcat/webapps \;
     cd $OLD_PWD
@@ -48,7 +48,7 @@ function api {
   sudo rm -r /opt/tomcat/webapps/api*
   sudo rm -rf /opt/tomcat/work/*
   sudo rm -rf /opt/tomcat/temp/*
-  
+
   OLD_PWD=$PWD
   cd ~/abiquo/platform/api
   mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
@@ -60,7 +60,7 @@ function nodecollector {
   sudo rm -r /opt/tomcat/webapps/nodecollector*
   sudo rm -rf /opt/tomcat/work/*
   sudo rm -rf /opt/tomcat/temp/*
-  
+
   OLD_PWD=$PWD
     cd ~/abiquo/platform/discovery-manager/
     mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
@@ -83,3 +83,20 @@ function dto {
   cd $OLD_PWD
 }
 
+function grp {
+    local ext=$1
+    shift
+    grep $@ `ls **/*."$ext"`
+}
+
+function grpl {
+    local ext=$1
+    shift
+    grep $@ -lR `ls **/*."$ext"`
+}
+
+
+
+function vie {
+    vi `find . -name "$1*"`
+}

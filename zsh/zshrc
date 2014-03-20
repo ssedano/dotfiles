@@ -48,4 +48,10 @@ source ~/.functions
 source ~/.aliases
 autoload select-word-style
 select-word-style shell
+
 zstyle ':completion:*' special-dirs true
+
+setopt no_share_history
+source /Users/detryo/.rvm/scripts/rvm
+
+autoload -U zmv
