@@ -23,13 +23,14 @@
     amend = !git commit --amend --date=\"$(date -R)\" -C HEAD
     ls = log --pretty=format:'%C(yellow)%h %C(green)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
     graph = log --graph --pretty=format':%C(yellow)%h%Cgreen%d%Creset %s %C(white) %an, %ar%Creset'
-    standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
+    standup = log --since '1 day ago' --oneline --author serafin.sedano@gmail.com
     sbco = submodule foreach git checkout
     trysbco = "!f() { git submodule foreach \"git checkout $1 || :\" ; }; f"
     sbcoup = "!f() { git submodule foreach \"git checkout $1 && git fetch && git pull origin $1 || :\"; }; f"
     trysbcoup = "!f() { git submodule foreach \"git fetch && git checkout $1 && git pull origin $1 || :\" ; }; f"
     last = log -10
     undo = reset --soft HEAD^
+    submodule-list = !grep path .gitmodules | sed 's/.*= //'
 [apply]
     whitespace = nowarn
 
@@ -45,5 +46,7 @@
     enabled = true
 [format]
     pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+[init]
+    templatedir = ~/dotfiles/git/hooks
 [include]
     path = .gitconfig.github

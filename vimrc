@@ -123,7 +123,7 @@ let g:ctags_statusline = 1
 
 " Taglist
 " let Tlist_Ctags_Cmd = "~/.vim/bundle/taglist.vim"
-noremap <silent><F3> :TlistToggle<CR>
+noremap <silent><F3>  :TagbarToggle<CR>
 let Tlist_Auto_Update = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_File_Fold_Auto_Close = 1
@@ -219,6 +219,8 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+let g:ruby_debugger_default_script = 'bin/rails server'
+
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 set undodir^=~/.cache/vim/undo/
@@ -232,7 +234,7 @@ map <F8>  :call g:RubyDebugger.continue()<CR>
 let g:airline_powerline_fonts = 1
 
 " Remove any trailing whitespace that is in the file
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+" autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 set backup
 set backupdir=~/.vim/backup

@@ -41,8 +41,8 @@ plugins=(git ruby pip python rvm mvn)
 
 source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
-autoload select-word-style
-select-word-style shell
+autoload -U select-word-style
+select-word-style bash
 source ~/.zshenv
 source ~/.functions
 source ~/.aliases
@@ -55,6 +55,3 @@ autoload -U zmv
 autoload -U zcp
 
 
-if test -f ~/.rvm/scripts/rvm; then
-       [ "$(type -t rvm)" = "function" ] || source ~/.rvm/scripts/rvm
-fi
