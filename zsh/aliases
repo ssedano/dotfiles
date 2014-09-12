@@ -1,37 +1,36 @@
 # custom alias
 alias deploy='mvn clean install & mvn cargo:undeploy && mvn  cargo:deploy '
 
-alias mysqln='mysql -uroot -proot kinton'
+alias mysqln='mysql -uroot -proot'
 
 
 alias rabbitmq-reset='sudo rabbitmqctl stop_app && sudo rabbitmqctl reset && sudo rabbitmqctl start_app'
 
 alias mng='lynx target/surefire-reports/TestSuite.txt'
 alias mnf='lynx target/failsafe-reports/TestSuite.txt'
-alias mvnj='mvn clean package -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev jetty:run -o'
+alias mvnj='mvn clean package -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev jetty:run -o -T1C'
 alias gitt='GIT_TRACE=1 git'
 
-alias mvnn='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev'
-alias mvnl='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -o'
-alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev'
-alias mvnal='mvn clean source:jar install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
+alias mvnn='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -T1C'
+alias mvnl='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -o -T1C'
+alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -T1C'
+alias mvnal='mvn clean source:jar install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o -T1C'
+alias mvnd='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -T1C -pl !:database'
 
 alias mvnalt="mvn -gs ~/projects/m2/settings.xml"
-alias mvnnalt="mvnalt clean install -Dit.suite=none -Dtest.suite=none"
-alias mvnaalt="mvnalt clean install -Dit.suite=all -Dtest.suite=all"
+alias mvnnalt="mvnalt clean install -Dit.suite=none -Dtest.suite=none -T1C"
+alias mvnaalt="mvnalt clean install -Dit.suite=all -Dtest.suite=all -T1C"
 
 # ZSH
-alias -g gp='| grep  '
+alias -g gre='| grep  '
 alias -s rb=vim
 alias -s log='less -MN'
 
 alias grm="git status | grep deleted | awk '{\$1=\$2=\"\"; print \$0}' | perl -pe 's/^[ \t]*//' | sed 's/ /\\\\ /g' | xargs git rm"
 alias -g clip='| xclip -selection clipboard'
 
-alias -g MVNDBGF=" -Dmaven.failsafe.debug  -Dwink.client.readTimeout=10000000 -Dwink.client.connectTimeout=1000000"
-
-
-
-
-alias -g MVNDBGG=" -Dmaven.surefire.debug  -Dwink.client.readTimeout=10000000 -Dwink.client.connectTimeout=1000000"
 alias mvn-project-version="mvn help:evaluate -Dexpression=project.version | grep -v '\['"
+alias -g JAVA_DEBUG='-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8084'
+alias -g JAVA_DEBUG_SUSPEND='-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8084'
+
+alias tpid="sudo jps | grep Bootstrap | cut -d  ' ' -f 1"

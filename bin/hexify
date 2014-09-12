@@ -1,0 +1,2 @@
+#!/bin/bash
+java -jar ~/jars/hexify-0.1.0-SNAPSHOT-standalone.jar "$@"

@@ -1,9 +1,6 @@
+call pathogen#infect()
 set nocompatible
 filetype off
-
-call pathogen#infect()
-
-
 set number
 set encoding=utf-8
 au VimEnter *  NERDTree
@@ -239,4 +236,15 @@ let g:airline_powerline_fonts = 1
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+" vertical line indentation
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '│'
 
+" Use <leader>t to open ctrlp
+let g:ctrlp_map = '<leader>t'
+" " Ignore these directories
+set wildignore+=*/target/**
+" " disable caching
+let g:ctrlp_use_caching=0

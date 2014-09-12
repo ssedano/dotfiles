@@ -1,0 +1,4 @@
+#!/bin/zsh
+local tomcatpid=`sudo jps | grep Bootstrap | cut -d ' '   -f 1`
+[ -n "$tomcatpid" ] && sudo kill ${1--15} "$tomcatpid"
+sudo rm -rf /opt/tomcat/{work,temp}/*(N)

@@ -6,7 +6,7 @@ function m {
         PARAMS="${PARAMS} ${PARAM}"
     done
 
-    mysql -uroot -proot -e "${PARAMS}" kinton
+    mysql -uroot -proot -e "${PARAMS}"
 
 
     PARAM=""
@@ -20,74 +20,12 @@ function mn {
         PARAMS="${PARAMS} ${PARAM}"
     done
 
-    mysql -uroot -proot -e "${PARAMS}" kinton_test
+    mysql -uroot -proot -e "${PARAMS}"
 
 
     PARAM=""
     PARAMS=""
 }
-
-function api {
-  kt
-  sudo rm -r /opt/tomcat/webapps/api*(N)
-  sudo rm -rf /opt/tomcat/work/*(N)
-  sudo rm -rf /opt/tomcat/temp/*(N)
-
-  local OLD_PWD=$PWD
-  cd ~/workspace/platform/api
-  mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Pdev
-  sudo cp target/api.war /opt/tomcat/webapps/
-  rt
-  cd $OLD_PWD
-}
-
-function nodecollector {
-  sudo rm -r /opt/tomcat/webapps/nodecollector*
-  sudo rm -rf /opt/tomcat/work/*
-  sudo rm -rf /opt/tomcat/temp/*
-
-  local OLD_PWD=$PWD
-    cd ~/workspace/platform/discovery-manager/
-    mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
-  cd ~/workspace/platform/discovery-manager/discovery-manager-server
-    dpl
-  cd $OLD_PWD
-}
-
-function model {
-  local OLD_PWD=$PWD
-  cd ~/workspace/platform/model/api-model
-  mvn clean source:jar install -Dtest.suite=none -Dit.suite=none
-  cd $OLD_PWD
-}
-
-function dto {
-  local OLD_PWD=$PWD
-  cd ~/workspace/platform/model/api-model-transport
-  mvn clean source:jar install
-  cd $OLD_PWD
-}
-
-function dpl {
-    sudo rm -rf /opt/tomcat/{work,temp,activemq-data,logs}/*(N)
-    local count=`ls -1 **/*.war| wc -l`
-    if [ "$count" -gt 1 ];
-    then
-        for i in $(ls /opt/tomcat/webapps/*.war)
-        do
-            local file=${${i##*/}%.*}
-            echo $file
-            sudo rm -rf /opt/tomcat/webapps/$file{,.war}(N)
-        done
-        sudo cp **/*.war /opt/tomcat/webapps/
-    else
-        local i=$(ls **/*.war)
-        local file=${${i##*/}%.*}
-        echo $file
-        sudo rm -rf /opt/tomcat/webapps/$file{,.war}(N)
-    fi
-}
-
 
 
 function grp {
@@ -101,13 +39,6 @@ function grplr {
     local ext=$1
     shift
     grep $@ -lR `ls **/*.$ext`
-}
-
-function database {
-    local old_pwd=$PWD
-    cd ~/workspace/platform/model/database
-    mvn clean source:jar install
-    cd $old_pwd
 }
 
 function vie {

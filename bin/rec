@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+WINDOW_NAME=${1-Chrome}
+WINDOW_ID=`wmctrl -l | grep "$WINDOW_NAME" | egrep -v "rec" | cut -d ' ' -f 1`
+VID_FILE_NAME=${2-record}
+OUTPUT_FOLDER=~/temp/records/"$VID_FILE_NAME"
+
+[ ! -e ~/temp/records/ouptut ] && mkdir ~/temp/records/output
+mkdir -p ~/temp/records/"$VID_FILE_NAME"
+recordmydesktop --windowid $WINDOW_ID -o "$OUTPUT_FOLDER".ogv --no-sound --v_quality 40 --fps 4 --stop-shortcut Control+Mod1+q --delay ${3-1}
+
+echo 'mplayer is extracting the images...'
+mplayer -ao null ~/temp/records/"$VID_FILE_NAME".ogv -vo jpeg:outdir="$OUTPUT_FOLDER":quality=40
+
+echo 'mogrify is enhancing...'
+time mogrify -strip ~/temp/records/"$VID_FILE_NAME"/*.jpg
+
+echo 'convert is creating...'
+time convert ~/temp/records/"$VID_FILE_NAME"/* +dither -layers Optimize -colors 32 ~/temp/records/"$VID_FILE_NAME"/"$VID_FILE_NAME"_bak.gif
+
+echo 'gifsicle is optimizing...'
+time gifsicle -O2 ~/temp/records/"$VID_FILE_NAME"/"$VID_FILE_NAME"_bak.gif -o ~/temp/records/output/"$VID_FILE_NAME".gif
+
+rm -r "$OUTPUT_FOLDER"
+rm "$OUTPUT_FOLDER".ogv

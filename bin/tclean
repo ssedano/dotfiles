@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+TOMCAT_ID=`sudo jps | grep Bootstrap | cut -d ' ' -f 1` 
+
+([ -n "$TOMCAT_ID" ] && sudo kill -15 $TOMCAT_ID
+
+sudo rm -rf /opt/tomcat/{temp,work}/*
+sudo rm -rf /opt/tomcat/webapps/${1:-}*
+
+)

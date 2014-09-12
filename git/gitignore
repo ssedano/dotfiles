@@ -2,3 +2,6 @@
 .swp
 vim/backup
 vim/tmp
+
+.eclipse-pmd
+.pmd

@@ -1,0 +1,4 @@
+#!/bin/zsh
+TOMCAT_PROCESS_ID=`sudo jps | grep Bootstrap | cut -d ' ' -f 1`
+([ -n "$TOMCAT_PROCESS_ID" ] && sudo kill -9 "$TOMCAT_PROCESS_ID"
+

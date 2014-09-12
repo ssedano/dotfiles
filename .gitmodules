@@ -88,3 +88,18 @@
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
+[submodule "vim/bundle/vim-node"]
+	path = vim/bundle/vim-node
+	url = https://github.com/moll/vim-node.git
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "vim/bundle/indentLine"]
+	path = vim/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "vim/bundle/crtlp.vim"]
+	path = vim/bundle/crtlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule "resty"]
+	path = resty
+	url = https://github.com/micha/resty
