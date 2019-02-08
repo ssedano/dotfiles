@@ -97,8 +97,8 @@ parse_git_state() {
       GIT_STATE=$GIT_STATE$GIT_PROMPT_NDELETE$NUM_NDEL
     fi
 
-    if [[ -f ".git/refs/stash" ]]; then
-      local LIST=${=$(git stash list 2> /dev/null | wc -l)}
+    if [[ -f ".git/logs/refs/stash" ]]; then
+      local LIST=${=$(wc -l < ".git/logs/refs/stash")}
       if [[ "$LIST" -gt 0 ]]; then
         GIT_STATE=$GIT_STATE$GIT_PROMPT_STASH$LIST
       fi
@@ -116,9 +116,9 @@ parse_git_state() {
 # If inside a Git repository, print its branch and state
 git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "$(parse_git_state $git_where)"
+  [ -n "$git_where" ] && echo "$(parse_git_state $git_where) "
 }
 
 setopt prompt_subst
-PROMPT='[%B%F{yello}%n%{$reset_color%}@%B%F{yellow}%M %B%F{magenta}%~ $(git_prompt_string) %{$reset_color%}%% '
-
+PROMPT='[%B%F{yello}%n%{$reset_color%}@%B%F{yellow}%m %B%F{magenta}%2~ $(git_prompt_string)%{$reset_color%}%b%{$reset_color%}%% '
+RPROMPT=''
